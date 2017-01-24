@@ -39,4 +39,5 @@ if __name__ == '__main__':
     ]
     out = main(data)
     print('in:', data)
-    list('out:', map(display, out))
+    print('out:')
+    list(map(display, out))
