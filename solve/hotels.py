@@ -41,11 +41,14 @@ def main(data):
     kwords = list(map(normalize, data[0].split()))
     reviews = data[2:]
     h_ids = list(filter(is_int, reviews))
+
     pairs = zip(
         h_ids,
         filter(not_int, reviews)
     )
+
     scores = list(map(ft.partial(get_score, kwords=kwords), pairs))
+
     totals = {x: ft.reduce(count_score,
                            filter(ft.partial(is_hotel, x), scores))[1]
               for x in h_ids}

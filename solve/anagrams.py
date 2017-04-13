@@ -1,4 +1,5 @@
 import functools as ft
+import pdb
 
 
 def normalize(word):
@@ -21,8 +22,14 @@ def display(group):
 
 
 def main(data):
+    pdb.set_trace()
+
+    # Create a unique list of sorted words
     groups = set(map(normalize, data))
+
+    # Find anagrams of each unique word in the list of words
     anagrams = sorted(map(ft.partial(get_anagrams, words=data), groups))
+
     return anagrams
 
 
